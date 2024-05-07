@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('boutique', [App\Http\Controllers\HomeController::class, 'listing'])->name("boutique");
+Route::get('categorie', [App\Http\Controllers\HomeController::class, 'affichage'])->name("categorie");
+Route::get('categories', [App\Http\Controllers\HomeController::class, 'all_categories'])->name('categories.all');
+Route::get('pages', [App\Http\Controllers\HomeController::class, 'pages'])->name('boutique.pages');
